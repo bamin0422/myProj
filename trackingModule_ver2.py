@@ -134,18 +134,16 @@ data=[
 ]
 
 def linetracing():
-    answer = str(GPIO.input(rightmostled)) + str(GPIO.input(rightlessled)) + str(GPIO.input(centerled)) + str(GPIO.input(leftlessled)) + str(GPIO.input(leftmostled))
-    print("leftmostled  detects black line(0) or white ground(1): " + str(GPIO.input(leftmostled)))  # D
-    print("leftlessled  detects black line(0) or white ground(1): " + str(GPIO.input(leftlessled)))  # B
-    print("centerled    detects black line(0) or white ground(1): " + str(GPIO.input(centerled)))  # A
-    print("rightlessled detects black line(0) or white ground(1): " + str(GPIO.input(rightlessled)))  # C
-    print("rightmostled detects black line(0) or white ground(1): " + str(GPIO.input(rightmostled)))  # E
+
+    answer = str(GPIO.input(leftmostled)) + str(GPIO.input(leftlessled)) + str(GPIO.input(centerled)) + str(GPIO.input(rightlessled)) + str(GPIO.input(rightmostled))
 
     for i in range(len(data)):
 
         if answer == data[i][0]:
             go_forward_any(data[i][1], data[i][2])
             sleep(1)
+            print(answer)
+            print()
             break
             pass
         pass
@@ -161,8 +159,10 @@ try:
 
         distance=getDistance()
 
+
         if distance > dis:
             linetracing()
+
 
         else:
             stop()
@@ -172,6 +172,3 @@ try:
 
 except KeyboardInterrupt:
     GPIO.cleanup()
-
-
-

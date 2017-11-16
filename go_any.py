@@ -149,9 +149,9 @@ def go_forward_any(left, right):
     # GPIO.output(MotorRight_B,GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
     # set the speed of the left motor to go fowrard
-    LeftPwm.ChangeDutyCycle(left)
+    LeftPwm.ChangeDutyCycle(left/2)
     # set the speed of the right motor to go fowrard
-    RightPwm.ChangeDutyCycle(right)
+    RightPwm.ChangeDutyCycle(right/2)
     # set the running time of the left motor to go fowrard
 
 

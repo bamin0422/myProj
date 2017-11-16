@@ -145,6 +145,7 @@ def linetracing():
 
         if answer == data[i][0]:
             go(data[i][1], data[i][2])
+            
             sleep(0.5)
             print(answer)
             break
@@ -163,11 +164,7 @@ try:
         distance=getDistance()
 
 
-        if distance > dis:
-            linetracing()
-
-
-        else:
+        if distance < dis:
             stop()
             sleep(1)
             go(0, 15)
@@ -176,6 +173,8 @@ try:
             go(15, 7)
             sleep(1)
             stop()
+
+        linetracing()
 
 except KeyboardInterrupt:
     GPIO.cleanup()

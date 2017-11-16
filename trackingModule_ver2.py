@@ -171,7 +171,10 @@ try:
             sleep(1)
             go(0, 15)
             sleep(1)
+            stop()
             go(15, 7)
+            sleep(1)
+            stop()
 
 except KeyboardInterrupt:
     GPIO.cleanup()

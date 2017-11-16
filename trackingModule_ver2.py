@@ -133,10 +133,6 @@ data=[
     ['10001', 15, 15]
 ]
 
-def go(left, right):
-    LeftPwm.start(left * 2)
-    RightPwm.start(right * 2)
-
 def linetracing():
 
     answer = str(GPIO.input(leftmostled)) + str(GPIO.input(leftlessled)) + str(GPIO.input(centerled)) + str(GPIO.input(rightlessled)) + str(GPIO.input(rightmostled))
@@ -144,20 +140,13 @@ def linetracing():
     for i in range(len(data)):
 
         if answer == data[i][0]:
-            go(data[i][1], data[i][2])
-            
-            sleep(0.5)
+            go_forward_any(data[i][1], data[i][2])
             print(answer)
             break
             pass
         pass
 
 dis = 10
-SwingPr = 42
-SwingTr = 1.0 * 1.47
-
-PointPr = 37
-PointTr = 0.8 * 1.9
 try:
     while True:
 
@@ -167,10 +156,10 @@ try:
         if distance < dis:
             stop()
             sleep(1)
-            go(0, 15)
+            go_forward_any(0, 15)
             sleep(1)
             stop()
-            go(15, 7)
+            go_forward_any(15, 7)
             sleep(1)
             stop()
 

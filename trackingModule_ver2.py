@@ -145,6 +145,7 @@ def linetracing():
 
         if answer == data[i][0]:
             go(data[i][1], data[i][2])
+            sleep(0.5)
             print(answer)
             break
             pass
